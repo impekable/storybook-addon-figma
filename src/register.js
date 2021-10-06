@@ -34,9 +34,11 @@ export class FigmaPanel extends React.Component {
     const { channel, api } = this.props
     channel.on(EVENT_ID, this.onAddFigma)
 
-    this.stopListeningOnStory = api.onStory(() => {
-      this.onAddFigma({ ...FigmaPanel.initialState })
-    })
+    if (api.onStory && typeof api.onStory === 'function') {
+      this.stopListeningOnStory = api.onStory(() => {
+        this.onAddFigma({ ...FigmaPanel.initialState })
+      })
+    }
   }
 
   componentWillUnmount() {

@@ -118,7 +118,8 @@ export var FigmaPanel = function (_React$Component) {
         width: '100%',
         frameBorder: '0',
         src: 'https://www.figma.com/embed?embed_host=' + embedHost + '&url=' + url,
-        allowFullScreen: allowFullScreen
+        allowFullScreen: allowFullScreen,
+        style: { minHeight: '90vh' }
       });
     }
   }]);

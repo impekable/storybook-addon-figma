@@ -113,6 +113,7 @@ export class FigmaPanel extends React.Component {
         frameBorder="0"
         src={`https://www.figma.com/embed?embed_host=${embedHost}&url=${url}`}
         allowFullScreen={allowFullScreen}
+        style={{ minHeight: '90vh' }}
       />
     )
   }

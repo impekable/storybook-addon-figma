@@ -41,9 +41,11 @@ export var FigmaPanel = function (_React$Component) {
 
       channel.on(EVENT_ID, this.onAddFigma);
 
-      this.stopListeningOnStory = api.onStory(function () {
-        _this2.onAddFigma(Object.assign({}, FigmaPanel.initialState));
-      });
+      if (api.onStory && typeof api.onStory === 'function') {
+        this.stopListeningOnStory = api.onStory(function () {
+          _this2.onAddFigma(Object.assign({}, FigmaPanel.initialState));
+        });
+      }
     }
   }, {
     key: 'componentWillUnmount',
